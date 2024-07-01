@@ -10,5 +10,10 @@ public class ClientController {
 		
 		return "dashboard";
 	}
+	@GetMapping({"/client"})
+	public String clientPage() {
+		
+		return "client";
+	}
     
 }

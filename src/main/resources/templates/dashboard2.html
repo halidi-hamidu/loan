@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>W3.CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="@{css/dashboardstyles.css}">
+    <style>
+        /* Sidebar */
+
+        .sidebar {
+
+            width: 250px;
+
+            background-color: #f0f0f0;
+
+             padding: 20px;
+
+            border-right: 1px solid #ddd;
+
+        }
+
+
+        .sidebar.logo {
+
+            margin-bottom: 20px;
+
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            color: #337ab7;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            color: #23527c;
+        }
+
+        .sidebar a.active {
+            color: #23527c;
+            font-weight: bold;
+        }
+
+        .sidebar .badge {
+            background-color: #337ab7;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 20px;
+        }
+
+        .container-fluid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .col-md-12 {
+            width: 100%;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:300px;margin-top: 0px;"
+        id="mySidebar">
+        <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
+        <div class="image_section">
+            <img th:src="@{images/icon.png}" alt="man" class="img-fluid">
+        </div>
+        <div th:include="fragments/sidebarNavigation :: #clientlinks"></div>
+    </div>
+
+    <div class="w3-main" style="margin-left:300px">
+        <div class="w3-teal">
+            <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+            <div class="w3-container">
+                <h1>My Page</h1>
+            </div>
+        </div>
+
+        <div class="w3-container">
+            <!-- Dashboard Page -->
+            <div class="main-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>Dashboard</h1>
+                            <p>Welcome to the Microfinance Management System!</p>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5>Client Overview</h5>
+                                            <p>10 active clients</p>
+                                            <a href="#clients" class="btn btn-primary">View Clients</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5>Loan Overview</h5>
+                                            <p>20 active loans</p>
+                                            <a href="#loans" class="btn btn-success">View Loans</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5>Savings Overview</h5>
+                                            <p>15 active savings accounts</p>
+                                            <a href="#savings" class="btn btn-info">View Savings</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        // Toggle sidebar menu items
+        $('.sidebar li ul').hide();
+        $('.sidebar li a').click(function () {
+            $(this).next('ul').toggle();
+        });
+
+        // Active menu item
+        $('.sidebar a').click(function () {
+            $(this).addClass('active').siblings().removeClass('active');
+        });
+
+        // Badge counter
+        $('.badge').each(function () {
+            var count = $(this).text();
+            $(this).text(count + ' items');
+        });
+    </script>
+
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+<body>
+
+<div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
+  <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
+  <img th:src="@{/images/icon.png}" alt="man" class="img-fluid">
+  <div class="w3-bar">
+
+    <a href="#" class="w3-bar-item w3-button">Dashboard</a>
+
+    <a th:href="/client" class="w3-bar-item w3-button">Clients</a>
+
+    <a href="#" class="w3-bar-item w3-button">Loans</a>
+
+    <a href="#" class="w3-bar-item w3-button">Savings</a>
+
+    <a href="#" class="w3-bar-item w3-button">Transactions</a>
+
+    <a href="#" class="w3-bar-item w3-button">Users</a>
+
+    <a href="#" class="w3-bar-item w3-button">Settings</a>
+
+</div>
+</div>
+
+<div class="w3-main" style="margin-left:200px">
+<div class="w3-teal">
+  <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+  <div class="w3-container">
+    <h1>Client</h1>
+  </div>
+</div>
+
+<div class="w3-container">
+    <table id="myTable" class="display">
+        <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Row 1 Data 1</td>
+                <td>Row 1 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 2 Data 1</td>
+                <td>Row 2 Data 2</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+<script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+</body>
+</html>
