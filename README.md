@@ -1,7 +1,4 @@
-:
-
-```markdown
-# Loan Project
+#Loan Project
 
 This project is designed to manage loan applications and processing. The application is containerized using Docker and can be easily set up using Docker Compose.
 
